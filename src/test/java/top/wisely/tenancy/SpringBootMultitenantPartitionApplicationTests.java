@@ -1,4 +1,4 @@
-package top.wisely.springbootmultitenantpartition;
+package top.wisely.tenancy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

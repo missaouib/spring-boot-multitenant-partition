@@ -1,0 +1,22 @@
+server {
+    server_name *.myapp.io;
+}
+
+server {
+    server_name ~^(?<account>.+)\.myapp\.io$;
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        fastcgi_param ACCOUNT $account; # $_SERVER['ACCOUNT']
+    }
+}
+
+server {
+    server_name ~^(?<account>.+)\.myapp\.io$;
+
+    root /var/www/$account;
+
+    access_log /var/log/nginx/$account-access.log;
+    error_log  /var/log/nginx/$account-error.log;
+}
