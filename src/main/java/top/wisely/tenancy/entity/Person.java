@@ -1,11 +1,9 @@
 package top.wisely.tenancy.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.TenantId;
+import top.wisely.tenancy.config.TextEncryptorConverter;
 
 @Entity
 @Data
@@ -30,4 +28,7 @@ public class Person {
     private String name;
 
     private Integer age;
+
+    @Convert(converter = TextEncryptorConverter.class)
+    private String email;
 }

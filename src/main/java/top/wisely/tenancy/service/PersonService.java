@@ -2,6 +2,7 @@ package top.wisely.tenancy.service;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,7 @@ import top.wisely.tenancy.repository.PersonRepository;
 import java.util.List;
 
 @Service
+@Slf4j
 public class PersonService {
 
     @PersistenceContext

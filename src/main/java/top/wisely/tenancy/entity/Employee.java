@@ -3,11 +3,12 @@ package top.wisely.tenancy.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import top.wisely.tenancy.config.TextEncryptorConverter;
 
 import java.util.Objects;
 
 @Entity
-@Table(schema = "dms", name = "employee")
+@Table(name = "employees")
 @Getter @Setter
 public class Employee {
 
@@ -19,8 +20,8 @@ public class Employee {
 
     private String lastName;
 
-    private String position;
-
+    @Convert(converter = TextEncryptorConverter.class)
+    private String email;
 
     @Override
     public boolean equals(Object o) {
@@ -41,7 +42,7 @@ public class Employee {
                 "id=" + id +
                 ", firstName=" + firstName +
                 ", lastName='" + lastName + '\'' +
-                ", position='" + position + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

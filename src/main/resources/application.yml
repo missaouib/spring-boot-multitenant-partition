@@ -3,7 +3,7 @@ server:
 spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        password: pwd
+        password: Bv87Kk3z.IP2020
         url: jdbc:mysql://mysql2:3306/tenant
         username: tenant
     jpa:
@@ -12,3 +12,7 @@ spring:
 multitenancy:
     http:
         header-name: X-TENANT-ID
+jasypt:
+    encryptor:
+        password: apvR5t3wABsvJKJufku5Yb5v9n7accqk7JRT4nQEgEkJN2btF7
+        algorithm: PBEWithMD5AndDES
