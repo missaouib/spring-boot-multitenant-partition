@@ -3,11 +3,17 @@ events {
 }
 http {
 
+    map $host $tenant {
+        ~^(?<tenant>.+)\.designre\.io$ $tenant;
+    }
+
+    log_format custom '$tenant - $remote_addr - $remote_user [$time_local] "$request" ' '$status $body_bytes_sent "$http_referer" ' '"$http_user_agent" "$http_x_forwarded_for"';
+
   server {
       server_name ~^(?<tenant>.+)\.designre\.io$;
       root /var/www/$tenant;
-      access_log /var/log/nginx/$tenant-access.log;
-      error_log  /var/log/nginx/$tenant-error.log;
+      access_log /var/log/nginx/access1.log;
+      error_log  /var/log/nginx/error1.log;
 
       location / {
               proxy_pass http://tenant:8080;

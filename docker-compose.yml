@@ -32,6 +32,7 @@ services:
     networks:
       - tenantnet
 
+
   nginx:
     container_name: nginx
     image: nginx:latest
