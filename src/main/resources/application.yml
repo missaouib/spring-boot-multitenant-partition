@@ -4,8 +4,8 @@ spring:
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
         password: Bv87Kk3z.IP2020
-        url: jdbc:mysql://mysql2:3306/tenant
-        username: tenant
+        url: jdbc:mysql://localhost:3306/tenant
+        username: root
     jpa:
         hibernate:
             ddl-auto: update
